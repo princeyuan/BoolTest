@@ -1,0 +1,83 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreateBoolMutant", "CreateBoolMutant\CreateBoolMutant.vcproj", "{43295A49-3A74-491A-B295-A0C00566BE9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RandBoolExprGen", "RandBoolExprGen\RandBoolExprGen.vcproj", "{11FDFBE6-3699-47E3-9C84-735C9315D176}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetBoolMfs", "GetBoolMfs\GetBoolMfs.vcproj", "{9FB51422-9022-449C-9E1E-9EC2B52BB337}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FaultHierarchyExper", "FaultHierarchyExper\FaultHierarchyExper.vcproj", "{D7274F36-2ECF-408B-ADA3-413639DDCCEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MutantCover", "MutantCover\MutantCover.vcproj", "{4FD7247D-B118-4CA9-AA32-497DAAD4EDDB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CreateExp_GetAllFailTests", "CreateExp_GetAllFailTests\CreateExp_GetAllFailTests.vcproj", "{913E71E7-CA1D-4923-97E9-17A9936A3AA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SolutionBase", "SolutionBase\SolutionBase.vcproj", "{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrioritizeFaultType", "PrioritizeFaultType\PrioritizeFaultType.vcproj", "{A0502C4E-65CF-478F-BACE-4FCE21DF8582}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB} = {ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{43295A49-3A74-491A-B295-A0C00566BE9B}.Debug.ActiveCfg = Debug|Win32
+		{43295A49-3A74-491A-B295-A0C00566BE9B}.Debug.Build.0 = Debug|Win32
+		{43295A49-3A74-491A-B295-A0C00566BE9B}.Release.ActiveCfg = Release|Win32
+		{43295A49-3A74-491A-B295-A0C00566BE9B}.Release.Build.0 = Release|Win32
+		{11FDFBE6-3699-47E3-9C84-735C9315D176}.Debug.ActiveCfg = Debug|Win32
+		{11FDFBE6-3699-47E3-9C84-735C9315D176}.Debug.Build.0 = Debug|Win32
+		{11FDFBE6-3699-47E3-9C84-735C9315D176}.Release.ActiveCfg = Release|Win32
+		{11FDFBE6-3699-47E3-9C84-735C9315D176}.Release.Build.0 = Release|Win32
+		{9FB51422-9022-449C-9E1E-9EC2B52BB337}.Debug.ActiveCfg = Debug|Win32
+		{9FB51422-9022-449C-9E1E-9EC2B52BB337}.Debug.Build.0 = Debug|Win32
+		{9FB51422-9022-449C-9E1E-9EC2B52BB337}.Release.ActiveCfg = Release|Win32
+		{9FB51422-9022-449C-9E1E-9EC2B52BB337}.Release.Build.0 = Release|Win32
+		{D7274F36-2ECF-408B-ADA3-413639DDCCEC}.Debug.ActiveCfg = Debug|Win32
+		{D7274F36-2ECF-408B-ADA3-413639DDCCEC}.Debug.Build.0 = Debug|Win32
+		{D7274F36-2ECF-408B-ADA3-413639DDCCEC}.Release.ActiveCfg = Release|Win32
+		{D7274F36-2ECF-408B-ADA3-413639DDCCEC}.Release.Build.0 = Release|Win32
+		{4FD7247D-B118-4CA9-AA32-497DAAD4EDDB}.Debug.ActiveCfg = Debug|Win32
+		{4FD7247D-B118-4CA9-AA32-497DAAD4EDDB}.Debug.Build.0 = Debug|Win32
+		{4FD7247D-B118-4CA9-AA32-497DAAD4EDDB}.Release.ActiveCfg = Release|Win32
+		{4FD7247D-B118-4CA9-AA32-497DAAD4EDDB}.Release.Build.0 = Release|Win32
+		{913E71E7-CA1D-4923-97E9-17A9936A3AA1}.Debug.ActiveCfg = Debug|Win32
+		{913E71E7-CA1D-4923-97E9-17A9936A3AA1}.Debug.Build.0 = Debug|Win32
+		{913E71E7-CA1D-4923-97E9-17A9936A3AA1}.Release.ActiveCfg = Release|Win32
+		{913E71E7-CA1D-4923-97E9-17A9936A3AA1}.Release.Build.0 = Release|Win32
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}.Debug.ActiveCfg = Debug|Win32
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}.Debug.Build.0 = Debug|Win32
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}.Release.ActiveCfg = Release|Win32
+		{ED5473F1-339D-4D8A-99EE-6DC8CB99EAEB}.Release.Build.0 = Release|Win32
+		{A0502C4E-65CF-478F-BACE-4FCE21DF8582}.Debug.ActiveCfg = Debug|Win32
+		{A0502C4E-65CF-478F-BACE-4FCE21DF8582}.Debug.Build.0 = Debug|Win32
+		{A0502C4E-65CF-478F-BACE-4FCE21DF8582}.Release.ActiveCfg = Release|Win32
+		{A0502C4E-65CF-478F-BACE-4FCE21DF8582}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
