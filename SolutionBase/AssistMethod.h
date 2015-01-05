@@ -8,13 +8,13 @@
 #include <fstream>
 #include <math.h>
 
-bool next_binary(std::vector<bool> &test);
+bool next_Binary(std::vector<int> &bin_tuple);
 
 bool next_Combination(std::vector<int> &combination,int num_elements);
 
-int getOneBinaryTestFromLine(char* str,std::vector<bool> &test);
+int getOneBinaryTestFromLine(char* str,std::vector<int> &test);
 
-bool getBinaryTestSuiteFromFile(const std::string &file,std::list<std::vector<bool> > &tests);
+bool getBinaryTestSuiteFromFile(const std::string &file,std::list<std::vector<int> > &tests);
 
 char* getOneIntFromLine(char *str,int &num);
 

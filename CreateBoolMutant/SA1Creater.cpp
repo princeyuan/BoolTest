@@ -1,40 +1,37 @@
 #include "SA1Creater.h"
 
-void SA1Creater::Initialize(const std::string &expression)
+void SA1Creater::CreaterInitialize()
 {
-	int exp_length=m_expression.size();
-
-	//for each symbol of boolean expression
-	for(int i=0;i<exp_length;i++)
-	{
-		//if the symbol is boolean variable 
-		if(m_expression[i]>='a' && m_expression[i]<='z')
-		{
-			//record appear location of each literal
-			m_literal_appear.push_back(i);
-		}
-	}
+    RecordLiteralAppearAndLength(m_expression,m_literal_appear,m_literal_length);
 }
 
-void SA1Creater::CreateMutantsRun(std::vector<std::string> &expressions)
+void SA1Creater::CreaterCleanStates()
 {
-	int literalnum=m_literal_appear.size();
+    m_literal_appear.clear();
+    m_literal_length.clear();
+}
 
-	for(int i=0;i<literalnum;i++)
-	{
-		std::string expr(m_expression);
+void SA1Creater::CreateMutantsRun(std::vector<std::string> &mu_expressions)
+{
+    int literalnum=m_literal_appear.size();
 
-		//a... or ...a... or ...a to 1... or ...1... or ...1
-		if(m_literal_appear[i]==0 || expr[m_literal_appear[i]-1]!='!')
-		{
-			expr[m_literal_appear[i]]='1';
-		}
-		else//!a... or ...!a... or ...!a to 1... or ...1... or ...1
-		{
-			expr[m_literal_appear[i]]='1';
-			expr.erase(expr.begin()+m_literal_appear[i]-1);
-		}
+    for(int i=0;i<literalnum;i++)
+    {
+        std::string expr(m_expression);
 
-		expressions.push_back(expr);
-	}
+        //a... or ...a... or ...a to 1... or ...1... or ...1
+        if(m_literal_appear[i]==0 || expr[m_literal_appear[i]-1]!='!')
+        {
+            expr[m_literal_appear[i]]='1';
+            expr.erase(expr.begin()+m_literal_appear[i]+1,expr.begin()+m_literal_appear[i]+m_literal_length[i]);
+        }
+        else //!a... or ...!a... or ...!a to 1... or ...1... or ...1
+        {
+            expr[m_literal_appear[i]]='1';
+            expr.erase(expr.begin()+m_literal_appear[i]+1,expr.begin()+m_literal_appear[i]+m_literal_length[i]);
+            expr.erase(expr.begin()+m_literal_appear[i]-1);
+        }
+
+        mu_expressions.push_back(expr);
+    }
 }

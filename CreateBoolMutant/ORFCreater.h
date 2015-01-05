@@ -7,12 +7,13 @@
 class ORFCreater : public MutantCreater
 {
 protected:
-	virtual void Initialize(const std::string &expression);
+    virtual void CreaterInitialize();
+    virtual void CreaterCleanStates();
 
-	virtual void CreateMutantsRun(std::vector<std::string> &expressions);
+    virtual void CreateMutantsRun(std::vector<std::string> &expressions);
 
 private:
-	std::list<int> m_operator_appear;
+    std::list<int> m_operator_positions;
 };
 
 #endif

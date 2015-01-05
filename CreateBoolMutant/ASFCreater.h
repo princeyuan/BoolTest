@@ -10,13 +10,13 @@
 class ASFCreater : public MutantCreater
 {
 protected:
-	virtual void Initialize(const std::string &expression);
+    virtual void CreaterInitialize();
+    virtual void CreaterCleanStates();
 
-	virtual void CreateMutantsRun(std::vector<std::string> &expressions);
+    virtual void CreateMutantsRun(std::vector<std::string> &expressions);
 
 private:
-	std::stack<int> m_left_parenthesis;
-	std::list<std::pair<int,int> > m_positions;
+    std::list<std::pair<int,int> > m_brackets_positions;
 
 };
 

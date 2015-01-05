@@ -7,15 +7,18 @@
 class LRFCreater : public MutantCreater
 {
 protected:
-	virtual void Initialize(const std::string &expression);
+    virtual void CreaterInitialize();
+    virtual void CreaterCleanStates();
 
-	virtual void CreateMutantsRun(std::vector<std::string> &expression);
+    virtual void CreateMutantsRun(std::vector<std::string> &expression);
 
 private:
 
-	std::vector<char> m_varlist;
+    std::vector<std::string> m_varlist;
 
-	std::vector<int> m_literal_appear;
+    std::vector<int> m_varlength;
+
+    std::vector<std::pair<int,int> > m_literal_var_map;
 };
 
 #endif

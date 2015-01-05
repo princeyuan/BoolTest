@@ -1,107 +1,168 @@
 <?xml version="1.0" encoding="gb2312"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="9.00"
 	Name="CreateBoolMutant"
 	ProjectGUID="{43295A49-3A74-491A-B295-A0C00566BE9B}"
-	Keyword="Win32Proj">
+	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
+	>
 	<Platforms>
 		<Platform
-			Name="Win32"/>
+			Name="Win32"
+		/>
 	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="Debug"
-			IntermediateDirectory="Debug"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="2">
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE"
-				MinimalRebuild="TRUE"
+				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="5"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="4"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="4"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SolutionBase.lib"
 				AdditionalLibraryDirectories="E:\Programming\BoolTest\SolutionBase\Debug"
-				GenerateDebugInformation="TRUE"/>
+				GenerateDebugInformation="true"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="Release"
-			IntermediateDirectory="Release"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="2">
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
 			<Tool
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE"
-				RuntimeLibrary="4"
+				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="TRUE"
-				DebugInformationFormat="3"/>
+				Detect64BitPortabilityProblems="true"
+				DebugInformationFormat="3"
+			/>
 			<Tool
-				Name="VCCustomBuildTool"/>
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SolutionBase.lib"
 				OutputFile="$(OutDir)/CreateBoolMutant.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="E:\Programming\BoolTest\SolutionBase\Release"
-				GenerateDebugInformation="TRUE"
+				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
-				TargetMachine="1"/>
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="1"
+			/>
 			<Tool
-				Name="VCMIDLTool"/>
+				Name="VCALinkTool"
+			/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCManifestTool"
+			/>
 			<Tool
-				Name="VCPreBuildEventTool"/>
+				Name="VCXDCMakeTool"
+			/>
 			<Tool
-				Name="VCPreLinkEventTool"/>
+				Name="VCBscMakeTool"
+			/>
 			<Tool
-				Name="VCResourceCompilerTool"/>
+				Name="VCFxCopTool"
+			/>
 			<Tool
-				Name="VCWebServiceProxyGeneratorTool"/>
+				Name="VCAppVerifierTool"
+			/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
-				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+				Name="VCPostBuildEventTool"
+			/>
 		</Configuration>
 	</Configurations>
 	<References>
@@ -110,154 +171,190 @@
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
 			<File
-				RelativePath=".\AllCreater.cpp">
+				RelativePath=".\CreateBoolMutant.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\CreateBoolMutant.cpp">
+				RelativePath=".\MuCreaterBuilder.cpp"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
+			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
+			>
 			<File
-				RelativePath=".\AllCreater.h">
+				RelativePath=".\ExpressionFileIO.h"
+				>
+			</File>
+			<File
+				RelativePath=".\MuCreaterBuilder.h"
+				>
 			</File>
 		</Filter>
 		<Filter
 			Name="MutationCreater"
-			Filter="">
+			>
 			<File
-				RelativePath=".\MutantCreater.cpp">
+				RelativePath=".\MutantCreater.cpp"
+				>
 			</File>
 			<File
-				RelativePath=".\MutantCreater.h">
+				RelativePath=".\MutantCreater.h"
+				>
 			</File>
 			<Filter
 				Name="ASF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\ASFCreater.cpp">
+					RelativePath=".\ASFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\ASFCreater.h">
+					RelativePath=".\ASFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="CCF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\CCFCreater.cpp">
+					RelativePath=".\CCFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\CCFCreater.h">
+					RelativePath=".\CCFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="CDF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\CDFCreater.cpp">
+					RelativePath=".\CDFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\CDFCreater.h">
+					RelativePath=".\CDFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="ENF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\ENFCreater.cpp">
+					RelativePath=".\ENFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\ENFCreater.h">
+					RelativePath=".\ENFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="LNF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\LNFCreater.cpp">
+					RelativePath=".\LNFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\LNFCreater.h">
+					RelativePath=".\LNFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="LRF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\LRFCreater.cpp">
+					RelativePath=".\LRFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\LRFCreater.h">
+					RelativePath=".\LRFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="MLF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\MLFCreater.cpp">
+					RelativePath=".\MLFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\MLFCreater.h">
+					RelativePath=".\MLFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="ORF"
-				Filter="">
+				>
 				<File
-					RelativePath=".\ORFCreater.cpp">
+					RelativePath=".\ORFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\ORFCreater.h">
+					RelativePath=".\ORFCreater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="SA0"
-				Filter="">
+				>
 				<File
-					RelativePath=".\SA0Creater.cpp">
+					RelativePath=".\SA0Creater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\SA0Creater.h">
+					RelativePath=".\SA0Creater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
 				Name="SA1"
-				Filter="">
+				>
 				<File
-					RelativePath=".\SA1Creater.cpp">
+					RelativePath=".\SA1Creater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\SA1Creater.h">
-				</File>
-			</Filter>
-			<Filter
-				Name="VNF(暂不考虑)"
-				Filter="">
-				<File
-					RelativePath=".\VNFCreater.cpp">
-				</File>
-				<File
-					RelativePath=".\VNFCreater.h">
+					RelativePath=".\SA1Creater.h"
+					>
 				</File>
 			</Filter>
 			<Filter
-				Name="VRF(暂不考虑)"
-				Filter="">
+				Name="VNF"
+				>
 				<File
-					RelativePath=".\VRFCreater.cpp">
+					RelativePath=".\VNFCreater.cpp"
+					>
 				</File>
 				<File
-					RelativePath=".\VRFCreater.h">
+					RelativePath=".\VNFCreater.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="VRF"
+				>
+				<File
+					RelativePath=".\VRFCreater.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\VRFCreater.h"
+					>
 				</File>
 			</Filter>
 		</Filter>
 		<File
-			RelativePath=".\Readme of Mutation.txt">
+			RelativePath=".\Readme of Mutation.txt"
+			>
 		</File>
 	</Files>
 	<Globals>

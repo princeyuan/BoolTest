@@ -2,43 +2,51 @@
 
 #include <iostream>
 
-void ASFCreater::Initialize(const std::string &expression)
+void ASFCreater::CreaterInitialize()
 {
-	for(int i=0;i<m_expression.size();i++)
-	{
-		if(m_expression[i]=='(')
-			m_left_parenthesis.push(i);
-		if(m_expression[i]==')')
-		{
-			if(m_left_parenthesis.empty())
-			{
-				std::cerr<<"The boolean expression \""<<expression<<"\" has solecism!"<<std::endl;
-				throw "Solecism!";
-			}
-			int pos=m_left_parenthesis.top();
-			m_left_parenthesis.pop();
-			std::pair<int,int> temp(pos,i);
-			m_positions.push_back(temp);
-		}
-	}
+    std::stack<int> left_brackets_pos;
+    
+    for(int i=0;i<m_expression.size();i++)
+    {
+        if(m_expression[i]=='(')
+        {
+            left_brackets_pos.push(i);
+        }
+        if(m_expression[i]==')')
+        {
+            if(left_brackets_pos.empty())
+            {
+                throw "Boolean Expression Solecism!";
+            }
+            int pos=left_brackets_pos.top();
+            left_brackets_pos.pop();
+            std::pair<int,int> temp(pos,i);
+            m_brackets_positions.push_back(temp);
+        }
+    }
 
-	if(!m_left_parenthesis.empty())
-	{
-		std::cerr<<"The boolean expression \""<<expression<<"\" has solecism!"<<std::endl;
-		throw "Solecism!";
-	}
+    if(!left_brackets_pos.empty())
+    {
+        m_brackets_positions.clear();
+        throw "Boolean Expression Solecism!";
+    }
 }
 
-void ASFCreater::CreateMutantsRun(std::vector<std::string> &expressions)
+void ASFCreater::CreaterCleanStates()
 {
-	for(std::list<std::pair<int,int> >::const_iterator it=m_positions.begin();
-		it!=m_positions.end();++it)
-	{
-		std::string expr(m_expression);
-	
-		expr.erase(expr.begin()+it->first);
-		expr.erase(expr.begin()+it->second-1);
+    m_brackets_positions.clear();
+}
 
-		expressions.push_back(expr);
-	}
+void ASFCreater::CreateMutantsRun(std::vector<std::string> &mu_expressions)
+{
+    for(std::list<std::pair<int,int> >::const_iterator it=m_brackets_positions.begin();
+        it!=m_brackets_positions.end();++it)
+    {
+        std::string expr(m_expression);
+    
+        expr.erase(expr.begin()+it->first);
+        expr.erase(expr.begin()+it->second-1);
+
+        mu_expressions.push_back(expr);
+    }
 }
