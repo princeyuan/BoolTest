@@ -21,33 +21,33 @@ void int2str(int number,std::string &str)
 
 bool next_Testcase(std::vector<int> &test_case)
 {
-	int last=test_case.size()-1;
+    int last=test_case.size()-1;
 
-	if(test_case[last]==0)
-	{
-		test_case[last]=1;
-		return true;
-	}
+    if(test_case[last]==0)
+    {
+        test_case[last]=1;
+        return true;
+    }
 
-	if(test_case[last]==1)
-	{
-		test_case[last]=0;
-		for(int i=last-1;i>=0;--i)
-		{
-			if(test_case[i]==0)
-			{
-				test_case[i]=1;
-				return true;;
-			}
-			else //test_case[i]==0
-			{
-				test_case[i]=0;
-			}
-		}
-		return false;
-	}
+    if(test_case[last]==1)
+    {
+        test_case[last]=0;
+        for(int i=last-1;i>=0;--i)
+        {
+            if(test_case[i]==0)
+            {
+                test_case[i]=1;
+                return true;;
+            }
+            else //test_case[i]==0
+            {
+                test_case[i]=0;
+            }
+        }
+        return false;
+    }
 
-	return false;
+    return false;
 }
 
 bool next_Combination(std::vector<int> &combination,int num_elements)
@@ -127,9 +127,7 @@ void ExtractFailureSchemas(const std::list<std::vector<int> > &fail_tests,
             //for each non-empty parameter set with i parameters
             do{
                 std::pair<std::vector<int>,SchemaStrength> 
-                    schema(std::vector<int>(length,
-                                            EMPTY_VALUE_IN_SCHEMA),
-                           i);
+                    schema(std::vector<int>(length,EMPTY_VALUE_IN_SCHEMA),i);
                 for(int j=0;j<i;++j)
                 {
                     schema.first[index[j]]=(*it)[index[j]];
@@ -223,10 +221,11 @@ void GetMFSSetFromFSSet(const std::map<std::vector<int>,SchemaStrength> &fs_set,
 
 /*--------------------------------------------------*/
 
-typedef std::pair<std::vector<int>,bool> Schema;
+typedef bool HaveChildOrNot;
 
-void ExtractFailureSchemas(const std::list<std::vector<int> > &fail_tests,
-                           std::list<std::vector<std::list<Schema> > > &fs)
+void ExtractFailureSchemas(
+        const std::list<std::vector<int> > &fail_tests,
+        std::list<std::vector<std::list<std::pair<std::vector<int>,HaveChildOrNot> > > > &fs)
 {
     if(fail_tests.empty())return;
 
@@ -235,7 +234,7 @@ void ExtractFailureSchemas(const std::list<std::vector<int> > &fail_tests,
     for(std::list<std::vector<int> >::const_iterator it=fail_tests.begin();
         it!=fail_tests.end();++it)
     {
-        std::vector<std::list<Schema> > one_fs(length);
+        std::vector<std::list<std::pair<std::vector<int>,HaveChildOrNot> > > one_fs(length);
 
         std::list<std::list<int> > diff_params_list;
 
@@ -326,7 +325,7 @@ void ExtractFailureSchemas(const std::list<std::vector<int> > &fail_tests,
                         }
                     }
 
-                    one_fs[i-1].push_back(Schema(schema,has_child));
+                    one_fs[i-1].push_back(std::pair<std::vector<int>,HaveChildOrNot>(schema,has_child));
                 }
             }
             while(next_Combination(index,length));
@@ -349,30 +348,33 @@ void ExtractFailureSchemas(const std::list<std::vector<int> > &fail_tests,
     }
 }
 
-void GetMFSSetFromFSSet(const std::list<std::vector<std::list<Schema> > > &fs,
-                        std::set<std::vector<int> > &mfs_set)
+void GetMFSSetFromFSSet(
+        const std::list<std::vector<std::list<std::pair<std::vector<int>,HaveChildOrNot> > > > &fs,
+        std::set<std::vector<int> > &mfs_set)
 {
     int length=fs.begin()->size();
-    typedef std::list<std::list<Schema>::const_iterator> IterList;
-    std::vector<std::list<std::list<Schema>::const_iterator> > cache(length);
+    //typedef std::list<std::list<std::pair<std::vector<int>,HaveChildOrNot> >::const_iterator> IterList;
+    //std::vector<IterList > cache(length);
 
-    for(std::list<std::vector<std::list<Schema> > >::const_iterator it=fs.begin();
-        it!=fs.end();++it)
+    std::list<std::vector<std::list<std::pair<std::vector<int>,HaveChildOrNot> > > >::const_iterator it;
+    for(it=fs.begin();it!=fs.end();++it)
     {
         for(int i=0;i<it->size();++i)
         {
-            for(std::list<Schema>::const_iterator it_sche=(*it)[i].begin();
-                it_sche!=(*it)[i].end();++it_sche)
+            std::list<std::pair<std::vector<int>,HaveChildOrNot> >::const_iterator it_sche;
+            for(it_sche=(*it)[i].begin();it_sche!=(*it)[i].end();++it_sche)
             {
                 if(!(it_sche->second))
                 {
-                    cache[i].push_back(it_sche);
+                    //cache[i].push_back(it_sche);
+                    mfs_set.insert(it_sche->first);
                 }
             }
         }
     }
 
-    for(int i=0;i<length;++i)//handle all (i+1)-value schemas 
+    //貌似这一步没有必要?
+    /*for(int i=0;i<length;++i)//handle all (i+1)-value schemas 
     {
         if(!cache[i].empty())
         {
@@ -399,9 +401,9 @@ void GetMFSSetFromFSSet(const std::list<std::vector<std::list<Schema> > > &fs,
                 }
             }
         }
-    }
+    }*/
 
-    for(int i=0;i<length;++i)
+    /*for(int i=0;i<length;++i)
     {
         if(!cache[i].empty())
         {
@@ -411,7 +413,7 @@ void GetMFSSetFromFSSet(const std::list<std::vector<std::list<Schema> > > &fs,
                 mfs_set.insert((*it_schemait)->first);
             }
         }
-    }
+    }*/
 }
 
 #endif

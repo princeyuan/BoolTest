@@ -8,6 +8,7 @@
 #include <fstream>
 #include <string.h>
 
+#include "BoolMFSAlgorithm.h"
 #include "BoolPFSAlgorithm.h"
 
 void GetAllFileList(const char *allfilelist_file_name,
@@ -105,7 +106,7 @@ void RecordMFS(const std::set<std::vector<int> > &mfs_set,
     outfile.close();
 }
 
-void RecordPFS(const std::map<std::vector<int>,PSchemaInfo> &pschemas,
+/*void RecordPFS(const std::map<std::vector<int>,SpectraInfo> &pschemas,
                const char *filename)
 {
     std::ofstream outfile;
@@ -127,6 +128,6 @@ void RecordPFS(const std::map<std::vector<int>,PSchemaInfo> &pschemas,
     }
 
     outfile.close();
-}
+}*/
 
 #endif

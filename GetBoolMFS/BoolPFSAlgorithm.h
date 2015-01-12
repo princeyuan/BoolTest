@@ -3,19 +3,18 @@
 
 #include "BoolMFSAlgorithm.h"
 
-class PSchemaInfo
+class SpectraInfo
 {
 public:
-    PSchemaInfo(int strength,int num_fail=0,int num_cov=0)
-        :m_strength(strength),m_num_fail(num_fail),m_num_cov(num_cov)
+    SpectraInfo(int num_fail=0,int num_cov=0)
+        :m_num_fail(num_fail),m_num_cov(num_cov)
     {}
-    int m_strength;
     int m_num_fail;
     int m_num_cov;
 };
 
 void ExtractCandidateSchemas(const std::list<std::vector<int> > &fail_tests,
-                             std::map<std::vector<int>,PSchemaInfo> &candidate_schemas)
+                             std::map<std::vector<int>,SpectraInfo> &candidate_schemas)
 {
     if(fail_tests.empty())return;
 
@@ -37,8 +36,8 @@ void ExtractCandidateSchemas(const std::list<std::vector<int> > &fail_tests,
 
             //for each non-empty parameter set with i parameters
             do{
-                std::pair<std::vector<int>,PSchemaInfo> 
-                    schema(std::vector<int>(length,EMPTY_VALUE_IN_SCHEMA),PSchemaInfo(i,1,1));
+                std::pair<std::vector<int>,SpectraInfo> 
+                    schema(std::vector<int>(length,EMPTY_VALUE_IN_SCHEMA),SpectraInfo(1,1));
                 for(int j=0;j<i;++j)
                 {
                     schema.first[index[j]]=(*it)[index[j]];
@@ -49,7 +48,7 @@ void ExtractCandidateSchemas(const std::list<std::vector<int> > &fail_tests,
 
                 if(candidate_schemas.size()==temp_size)
                 {
-                    std::map<std::vector<int>,PSchemaInfo>::iterator schema_it=
+                    std::map<std::vector<int>,SpectraInfo>::iterator schema_it=
                         candidate_schemas.find(schema.first);
                     if(schema_it!=candidate_schemas.end())
                     {
@@ -62,9 +61,9 @@ void ExtractCandidateSchemas(const std::list<std::vector<int> > &fail_tests,
     }
 }
 
-void ComputePSchemasInfo(const std::map<std::vector<int>,PSchemaInfo> &candidate_schemas,
+void ComputePSchemasInfo(const std::map<std::vector<int>,SpectraInfo> &candidate_schemas,
                          const std::list<std::vector<int> > &fail_tests,
-                         std::map<std::vector<int>,PSchemaInfo> &pschemas)
+                         std::map<std::vector<int>,SpectraInfo> &pschemas)
 {
     if(candidate_schemas.empty())
         return;
@@ -79,7 +78,7 @@ void ComputePSchemasInfo(const std::map<std::vector<int>,PSchemaInfo> &candidate
     {
         if(find(fail_tests.begin(),fail_tests.end(),pass_test)==fail_tests.end())
         {
-            for(std::map<std::vector<int>,PSchemaInfo>::iterator it =pschemas.begin();
+            for(std::map<std::vector<int>,SpectraInfo>::iterator it =pschemas.begin();
                 it!=pschemas.end();++it)
             {
                 if(IsSubSchema(it->first,pass_test))
