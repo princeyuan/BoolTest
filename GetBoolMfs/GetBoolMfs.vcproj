@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				OutputFile="$(OutDir)/GetBoolMFS.exe"
+				OutputFile="$(OutDir)/GetBoolPFS.exe"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/GetBoolMfs.pdb"

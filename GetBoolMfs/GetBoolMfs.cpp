@@ -67,6 +67,11 @@ int main(int argc, char* argv[])
                 rangs.push_back(std::pair<int,int>(atoi(argv[i+1]),-1));
                 i+=2;
             }
+            else if(i+1<argc && '0'<=argv[i+1][0] && argv[i+1][0]<'9')
+            {
+                rangs.push_back(std::pair<int,int>(atoi(argv[i+1]),atoi(argv[i+1])));
+                i+=1;
+            }
             else
             {
                 rangs.push_back(std::pair<int,int>(-1,-1));
@@ -144,7 +149,12 @@ int main(int argc, char* argv[])
                         }
                         else
                         {
-                            //
+                            std::map<std::vector<int>,SpectraInfo> cfs;
+                            std::map<std::vector<int>,SpectraInfo> pfs;
+                            
+                            ExtractCandidateSchemas(fail_tests,cfs);
+                            ComputePSchemasInfo(cfs,fail_tests,pfs);
+                            RecordPFS(pfs,out_file_name.c_str());
                         }
                     }
                 }

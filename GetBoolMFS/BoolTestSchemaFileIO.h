@@ -106,17 +106,35 @@ void RecordMFS(const std::set<std::vector<int> > &mfs_set,
     outfile.close();
 }
 
-/*void RecordPFS(const std::map<std::vector<int>,SpectraInfo> &pschemas,
+void RecordPFS(const std::map<std::vector<int>,SpectraInfo> &pschemas,
                const char *filename)
 {
     std::ofstream outfile;
     outfile.open(filename);
-    
-    for(std::map<std::vector<int>,PSchemaInfo>::const_iterator it=pschemas.begin();
+    std::list<std::pair<std::vector<int>,SpectraInfo> > temp;
+    for(std::map<std::vector<int>,SpectraInfo>::const_iterator it=pschemas.begin();
         it!=pschemas.end();++it)
     {
-        for(std::vector<int>::const_iterator it_v=(*it).first.begin();
-            it_v!=(*it).first.end();++it_v)
+        temp.push_back(*it);
+    }
+    
+    while(!temp.empty())
+    {
+        double per=0.0;
+        std::list<std::pair<std::vector<int>,SpectraInfo> >::iterator max;
+        for(std::list<std::pair<std::vector<int>,SpectraInfo> >::iterator it=temp.begin();
+            it!=temp.end();++it)
+        {
+            double cur_per=(double)(it->second.m_num_fail)/(double)(it->second.m_num_cov);
+            if(cur_per > per)
+            {
+                per=cur_per;
+                max=it;
+            }
+        }
+        
+        for(std::vector<int>::const_iterator it_v=(*max).first.begin();
+            it_v!=(*max).first.end();++it_v)
         {
             if(*it_v==-1)
                 outfile<<'-';
@@ -124,10 +142,12 @@ void RecordMFS(const std::set<std::vector<int> > &mfs_set,
                 outfile<<*it_v;
         }
 
-        outfile<<'\t'<<' '<<it->second.m_num_fail<<' '<<it->second.m_num_cov<<'\n';
+        outfile<<"\t "<<max->second.m_num_fail<<' '<<max->second.m_num_cov<<'\t'<<per<<'\n';
+        
+        temp.erase(max);
     }
 
     outfile.close();
-}*/
+}
 
 #endif
